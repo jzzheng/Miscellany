@@ -12,7 +12,7 @@ broad steps are like:
 1. add navigation properties into partial classes for models A and B 
   2. no need to add decorators as magic will happen in OnModelCreatingPartial
 1. to OnModelCreatingPartial for DB context, add entity with:
-  - ```
+```
 modelBuilder.Entity<ModelA>(entity =>
 {
     entity.Ignore("TempId");    // stupid hack necessary to get rid of TempId that is erroneously expected when A has [Keyless] attribute (as scaffolded)
@@ -24,5 +24,6 @@ modelBuilder.Entity<ModelA>(entity =>
         .HasPrincipalKey(a => a.IdOrEquivalent);
 });
 ```
+1. profit
 
 etc etc etc finish this later 
