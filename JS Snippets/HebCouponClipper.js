@@ -8,6 +8,7 @@ Brittle - depends on classes etc. being applied consistently.
 
 var timesNoViewMore = 0;
 var ctClipped = 0;
+var talky = alert;	// swap with console.log for less verbosity
 var it = setInterval(function() { 
 	var coupon = document.querySelector("button[color=coupon]"); 
 	if (coupon) {
@@ -26,7 +27,7 @@ var it = setInterval(function() {
 		else if ((++timesNoViewMore) > 10) {
 			// we're done; have encountered more than 10 times with no 'view more' 
 			clearInterval(it);
-			console.log(`all done! clipped ${ctClipped} coupons`);
+			talky(`all done! clipped ${ctClipped} coupons`);
 		}
 	}
 }, 1000);
