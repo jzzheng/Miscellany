@@ -10,8 +10,9 @@ var timesNoViewMore = 0;
 var ctClipped = 0;
 var talky = alert;	// swap with console.log for less verbosity
 var it = setInterval(function() { 
-	var coupon = document.querySelector("button[color=coupon]"); 
-	if (coupon) {
+	var coupons = Array.from(document.querySelectorAll("[data-qe-id=couponCard] button")).filter(function(elt) { return elt.innerText == 'Clip'; }); 
+	if (coupons.length) {
+		var coupon = coupons[0];
 		coupon.scrollIntoViewIfNeeded();
 		coupon.click();
 		++ctClipped;
