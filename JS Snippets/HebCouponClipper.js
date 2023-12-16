@@ -6,6 +6,8 @@ https://www.heb.com/digital-coupon/coupon-selection/all-coupons?clippedStatus=UN
 Clip a coupon by hand first - will reveal if you need to log in again.
 Press F12, press ESC until Chrome console appears, run.
 Brittle - depends on classes etc. being applied consistently.
+NB: the count clipped is based on the number of times a coupon is *clicked*. 
+  Sometimes the click event doesn't result in a coupon being clipped, in which case the final ctClipped report from talky will be an overestimate
 
 */
 
