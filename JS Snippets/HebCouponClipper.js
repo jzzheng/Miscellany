@@ -8,6 +8,9 @@ Press F12, press ESC until Chrome console appears, run.
 Brittle - depends on classes etc. being applied consistently.
 NB: the count clipped is based on the number of times a coupon is *clicked*. 
   Sometimes the click event doesn't result in a coupon being clipped, in which case the final ctClipped report from talky will be an overestimate
+  
+NB2: HEB seems to have rolled out or at least begun A/B testing a paged view for coupons, 
+  which limits the effectiveness of this script as you have to go to the next page and rerun it. Will have to ponder an update.
 
 */
 
