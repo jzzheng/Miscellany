@@ -18,7 +18,7 @@ iframe.setAttribute("src", couponUrl);
 iframe.style.cssText = "width: 100%; height: 95vh;"
 
 const progress = document.createElement('span');
-progress.innerText = "Starting clipper. Don't forget those gosh darn instructions in the comments!";
+updateProgressText("Starting clipper. Don't forget those gosh darn instructions in the comments!");
 document.body.replaceChildren(progress, iframe);
 
 function updateProgressText(val) {
@@ -94,6 +94,7 @@ function onLoadFreshCouponPage() {
 			}
 			else {
 				const finalText = `all done! clipped ${ctClipped} coupons across ${timesLoaded} loads.`
+				talky(finalText);
 				if (alertWhenDone) {
 					alert(finalText);
 				}
