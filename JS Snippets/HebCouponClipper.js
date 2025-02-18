@@ -32,6 +32,24 @@ const extraTalky = true, alertWhenDone = true;
 
 // everything to do when loading a fresh coupon page
 function onLoadFreshCouponPage() {
+	// whether or not we seem to have actually loaded a good coupon page; sometimes there's a security block and we have to refresh until it clears up
+	const seemsGood = iframe.contentWindow.document.querySelectorAll("[data-qe-id='clippedCoupons']").length > 0 
+		|| iframe.contentWindow.document.querySelectorAll("[data-qe-id='navigationList']").length > 0;
+
+	if (!seemsGood) {
+		// refresh and try again
+		if (extraTalky) {
+			talky(`Clipped ${ctClipped} times so far across ${timesLoaded} batches. HEB page seems angry/borked; will refresh after a delay.`);
+		}
+		
+		const delay = 1000 + (Math.floor(Math.random() * 3000));	// add some jigger under the belief that maybe that'll make the security page less angry
+		setTimeout(function() {
+			++timesLoaded;
+			iframe.src = couponUrl;	// resetting src to couponUrl will reload the iframe, purge the cursor argument, and refire the 'load' event as appropriate
+		}, delay);
+		return;
+	}
+	
 	var timesNoNext = 0;
 	const isPaginated = iframe.contentWindow.document.querySelectorAll("[data-qe-id=paginationList]").length > 0;
 	
