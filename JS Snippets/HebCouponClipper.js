@@ -34,7 +34,9 @@ const extraTalky = true, alertWhenDone = true;
 function onLoadFreshCouponPage() {
 	// whether or not we seem to have actually loaded a good coupon page; sometimes there's a security block and we have to refresh until it clears up
 	const seemsGood = iframe.contentWindow.document.querySelectorAll("[data-qe-id='clippedCoupons']").length > 0 
-		|| iframe.contentWindow.document.querySelectorAll("[data-qe-id='navigationList']").length > 0;
+		|| iframe.contentWindow.document.querySelectorAll("[data-qe-id='navigationList']").length > 0
+		|| iframe.contentWindow.document.querySelectorAll("[data-testid='Log out desktop link']").length > 0
+		;
 
 	if (!seemsGood) {
 		// refresh and try again
